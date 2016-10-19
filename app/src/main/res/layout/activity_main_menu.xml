@@ -3,6 +3,16 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@android:color/black"
-              android:orientation="vertical">
+              android:orientation="horizontal">
+
+    <View
+        android:layout_width="60dp"
+        android:background="@android:color/holo_green_dark"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
