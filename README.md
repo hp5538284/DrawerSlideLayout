@@ -13,9 +13,9 @@ usage:
 </com.yinghuanhang.slide.SlideReverseHorizonLayout>
 
 mDrawer = (SlideDrawerHorizonLayout) findViewById(R.id.base_slide);
-// 设置主内容
+
 View content = inflater.inflate(R.layout.activity_main_content, null);
 mDrawer.setContentView(content);
-// 设置菜单内容
+
 View menu = inflater.inflate(R.layout.activity_main_menu, null);
 mDrawer.setSlideMenu(menu, 0.3f);
