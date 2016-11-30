@@ -1,6 +1,5 @@
 # DrawerSlideLayout
-支持二次拖拽展开
-
+第一次滑动展开侧边栏，继续滑动展开全部内容
 usage:
 <br>
 mDrawer = (SlideDrawerHorizonLayout) findViewById(R.id.base_slide);
