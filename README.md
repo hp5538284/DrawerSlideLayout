@@ -11,5 +11,9 @@ mDrawer.setContentView(content);
 <br>
 View menu = inflater.inflate(R.layout.activity_main_menu, null);
 <br>
-mDrawer.setSlideMenu(menu, 0.3f);
+or
+<br>
+View menu = mDrawer.inflate(LayoutInflater,R.layout.activity_main_menu);
+<br>
+mDrawer.setMenuView(menu);
 <br>
