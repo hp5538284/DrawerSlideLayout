@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.yinghuanhang.slide.helper.DrawerDragHelper;
 
@@ -47,7 +48,7 @@ public class HorizonRightDrawerLayout extends HorizonDrawerLayout {
     @Override
     public void onTouchUp(MotionEvent event) {
         DrawerDragHelper helper = getDragHelper();
-        LayoutParams params = getContentParam();
+        FrameLayout.LayoutParams params = getContentParam();
         int area = getArea() / 3;
 
         if (getDrawerState() == DRAWER_OPEN) {
@@ -74,7 +75,7 @@ public class HorizonRightDrawerLayout extends HorizonDrawerLayout {
     }
 
     @Override
-    public void onRunning(LayoutParams params) {
+    public void onRunning(FrameLayout.LayoutParams params) {
         if (params.leftMargin == -getDrawerMargin()) {
             onDrawerStateChange(DRAWER_OPEN);
             return;
@@ -97,7 +98,7 @@ public class HorizonRightDrawerLayout extends HorizonDrawerLayout {
      * @param params 内容视图布局参数
      * @param margin 布局边距
      */
-    public void onSlidingContent(LayoutParams params, int margin) {
+    public void onSlidingContent(FrameLayout.LayoutParams params, int margin) {
         if (params.leftMargin != margin) {
             params.leftMargin = margin;
             getContentView().requestLayout();
@@ -110,7 +111,7 @@ public class HorizonRightDrawerLayout extends HorizonDrawerLayout {
      * @param margins 当前距离
      */
     public boolean onSliding(int margins) {
-        LayoutParams params = getContentParam();
+        FrameLayout.LayoutParams params = getContentParam();
         if (margins > 0) {
             onSlidingContent(params, 0);
             return false;

@@ -3,6 +3,7 @@ package com.yinghuanhang.slide;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.FrameLayout;
 
 import com.yinghuanhang.slide.helper.DrawerDragHelper;
 
@@ -25,7 +26,7 @@ public class ExpandsRightDrawerLayout extends HorizonRightDrawerLayout {
     @Override
     public void onTouchUp(MotionEvent event) {
         DrawerDragHelper helper = getDragHelper();
-        LayoutParams params = getContentParam();
+        FrameLayout.LayoutParams params = getContentParam();
         int area = getArea() / 3;
 
         if (getDrawerState() == DRAWER_EXPAND) {    // 展开转态：移动距离有效则收起，左移但无效则恢复展开状态
@@ -65,7 +66,7 @@ public class ExpandsRightDrawerLayout extends HorizonRightDrawerLayout {
     @Override
     public boolean onSliding(int margins) {
         DrawerDragHelper helper = getDragHelper();
-        LayoutParams params = getContentParam();
+        FrameLayout.LayoutParams params = getContentParam();
 
         if (margins < -getMaxMargin()) {                    // 滑动距离超过屏幕距离
             onSlidingContent(params, -getMaxMargin());
@@ -98,7 +99,7 @@ public class ExpandsRightDrawerLayout extends HorizonRightDrawerLayout {
     }
 
     @Override
-    public void onRunning(LayoutParams params) {
+    public void onRunning(FrameLayout.LayoutParams params) {
         if (params.leftMargin == -getMaxMargin()) {
             onDrawerStateChange(DRAWER_EXPAND);
             return;

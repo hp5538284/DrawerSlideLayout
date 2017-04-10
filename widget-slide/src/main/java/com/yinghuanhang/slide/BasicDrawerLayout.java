@@ -47,6 +47,7 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
     private LayoutParams mContentLayout;
     private View mContentView;
     private View mMenuView;
+    private View mDrawerView;
 
     public void setContentView(View view) {
         if (mContentView != null) {
@@ -60,6 +61,18 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
         }
     }
 
+    public void setMenuView(View v, int id) {
+        if (mMenuView != null) {
+            removeView(mMenuView);
+            mMenuView = null;
+        }
+        if (v != null) {
+            mMenuView = v;
+            mDrawerView = v.findViewById(id);
+            addView(mMenuView, 0);
+        }
+    }
+
     public void setMenuView(View v) {
         if (mMenuView != null) {
             removeView(mMenuView);
@@ -67,6 +80,7 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
         }
         if (v != null) {
             mMenuView = v;
+            mDrawerView = v;
             addView(mMenuView, 0);
         }
     }
@@ -89,11 +103,15 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
 
     public void setDrawerMargin(int margin) {
         mDrawerMargin = margin;
-        mArea = margin / 6;
+        setArea(margin / 6);
     }
 
     public int getDrawerMargin() {
         return mDrawerMargin;
+    }
+
+    public void setArea(int area) {
+        mArea = area > 45 ? area : 45;
     }
 
     public int getArea() {
@@ -279,8 +297,8 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
         if (mContentView == null) {
             return false;
         }
-        if (mDrawerMargin == 0 && mMenuView != null) {
-            setDrawerMargin(mMenuView.getWidth());
+        if (mDrawerMargin == 0 && mDrawerView != null) {
+            setDrawerMargin(mDrawerView.getWidth());
         }
         if (mContentLayout.width == LayoutParams.MATCH_PARENT) {
             mContentLayout.width = mContentView.getWidth();
