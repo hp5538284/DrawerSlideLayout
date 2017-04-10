@@ -5,28 +5,28 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.huanhang.drawer.HorizonLeftDrawerLayout
+    <com.yinghuanhang.slide.HorizonLeftDrawerLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-    </com.huanhang.drawer.HorizonLeftDrawerLayout>
+    </com.yinghuanhang.slide.HorizonLeftDrawerLayout>
 
-    <com.huanhang.drawer.HorizonRightDrawerLayout
+    <com.yinghuanhang.slide.HorizonRightDrawerLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-    </com.huanhang.drawer.HorizonRightDrawerLayout>
+    </com.yinghuanhang.slide.HorizonRightDrawerLayout>
 
-    <com.huanhang.drawer.ExpandsLeftDrawerLayout
+    <com.yinghuanhang.slide.ExpandsLeftDrawerLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-    </com.huanhang.drawer.ExpandsLeftDrawerLayout>
+    </com.yinghuanhang.slide.ExpandsLeftDrawerLayout>
 
-    <com.huanhang.drawer.ExpandsRightDrawerLayout
+    <com.yinghuanhang.slide.ExpandsRightDrawerLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-    </com.huanhang.drawer.ExpandsRightDrawerLayout>
+    </com.yinghuanhang.slide.ExpandsRightDrawerLayout>
 
 </LinearLayout>
