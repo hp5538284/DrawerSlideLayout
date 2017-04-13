@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="列表视图，这里以ListView做例子"/>
+
+    <ListView
+        android:id="@+id/main_right_scroll_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp">
+    </ListView>
+
+    <TextView
+        android:id="@+id/main_right_scroll_ignore"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:text="此区域手势将被忽略"
+        android:textColor="@android:color/white"/>
+</RelativeLayout>

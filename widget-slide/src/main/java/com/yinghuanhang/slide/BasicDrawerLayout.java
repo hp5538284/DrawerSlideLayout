@@ -71,6 +71,10 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
             mDrawerView = v.findViewById(id);
             addView(mMenuView, 0);
         }
+        LayoutParams params = mDrawerView != null ? (LayoutParams) mDrawerView.getLayoutParams() : null;
+        if (params != null && params.width > 0) {
+            setDrawerMargin(params.width);
+        }
     }
 
     public void setMenuView(View v) {
@@ -82,6 +86,10 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
             mMenuView = v;
             mDrawerView = v;
             addView(mMenuView, 0);
+        }
+        LayoutParams params = mDrawerView != null ? (LayoutParams) mDrawerView.getLayoutParams() : null;
+        if (params != null && params.width > 0) {
+            setDrawerMargin(params.width);
         }
     }
 

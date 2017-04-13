@@ -24,6 +24,18 @@ public class HorizonLeftDrawerLayout extends HorizonDrawerLayout {
         super(context);
     }
 
+    /**
+     * 人为切换
+     *
+     * @param state 切换的状态
+     */
+    public void onChangeDrawerOpenByUser(int state) {
+        DrawerDragHelper helper = getDragHelper();
+        helper.setTarget(state == DRAWER_OPEN ? getDrawerMargin() : 0);
+        helper.setStart(getContentParam().leftMargin, getContentParam().leftMargin > helper.getTarget() ? -5 : 5);
+        onRunning(true);
+    }
+
     @Override
     public boolean onScroll(MotionEvent e, MotionEvent ev, float dx, float dy) {
         if (getDragState() != DRAG_SCROLL) {
@@ -101,7 +113,7 @@ public class HorizonLeftDrawerLayout extends HorizonDrawerLayout {
     public void onSlidingContent(FrameLayout.LayoutParams params, int margin) {
         if (params.leftMargin != margin) {
             params.leftMargin = margin;
-            getContentView().requestLayout();
+            requestLayout();
         }
     }
 
@@ -112,11 +124,11 @@ public class HorizonLeftDrawerLayout extends HorizonDrawerLayout {
      */
     public boolean onSliding(int margins) {
         FrameLayout.LayoutParams params = getContentParam();
-        if (margins < 0) {
+        if (margins <= 0) {
             onSlidingContent(params, 0);
             return false;
         }
-        if (margins > getDrawerMargin()) {
+        if (margins >= getDrawerMargin()) {
             onSlidingContent(params, getDrawerMargin());
             return false;
         }

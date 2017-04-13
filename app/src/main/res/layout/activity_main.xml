@@ -5,28 +5,24 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.yinghuanhang.slide.HorizonLeftDrawerLayout
+    <Button
+        android:id="@+id/scroll_left"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </com.yinghuanhang.slide.HorizonLeftDrawerLayout>
+        android:layout_height="45dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="左侧展开与列表视图组合"/>
 
-    <com.yinghuanhang.slide.HorizonRightDrawerLayout
+    <Button
+        android:id="@+id/scroll_right"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </com.yinghuanhang.slide.HorizonRightDrawerLayout>
-
-    <com.yinghuanhang.slide.ExpandsLeftDrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </com.yinghuanhang.slide.ExpandsLeftDrawerLayout>
-
-    <com.yinghuanhang.slide.ExpandsRightDrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </com.yinghuanhang.slide.ExpandsRightDrawerLayout>
+        android:layout_height="45dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="右侧展开与列表视图组合"/>
 
 </LinearLayout>

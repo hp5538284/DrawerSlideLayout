@@ -23,6 +23,22 @@ public class ExpandsLeftDrawerLayout extends HorizonLeftDrawerLayout {
         super(context);
     }
 
+    /**
+     * 人为切换
+     *
+     * @param state 切换的状态
+     */
+    public void onChangeDrawerOpenByUser(int state) {
+        if (state == DRAWER_EXPAND) {
+            DrawerDragHelper helper = getDragHelper();
+            helper.setTarget(getMaxMargin());
+            helper.setStart(getContentParam().leftMargin, getContentParam().leftMargin > helper.getTarget() ? -5 : 5);
+            onRunning(true);
+            return;
+        }
+        super.onChangeDrawerOpenByUser(state);
+    }
+
     @Override
     public void onTouchUp(MotionEvent event) {
         DrawerDragHelper helper = getDragHelper();
@@ -68,11 +84,11 @@ public class ExpandsLeftDrawerLayout extends HorizonLeftDrawerLayout {
         DrawerDragHelper helper = getDragHelper();
         FrameLayout.LayoutParams params = getContentParam();
 
-        if (margins > getMaxMargin()) {                     // 滑动距离超过屏幕距离
+        if (margins >= getMaxMargin()) {                     // 滑动距离超过屏幕距离
             onSlidingContent(params, getMaxMargin());
             return false;
         }
-        if (margins > getDrawerMargin()) {                  // 滑动距离超过侧栏距离
+        if (margins >= getDrawerMargin()) {                  // 滑动距离超过侧栏距离
             if (getDrawerState() == DRAWER_EXPAND) {
                 onSlidingContent(params, margins);
                 return true;
