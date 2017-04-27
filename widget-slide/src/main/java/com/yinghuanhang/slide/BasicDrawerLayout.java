@@ -186,7 +186,7 @@ public abstract class BasicDrawerLayout extends FrameLayout implements GestureDe
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        return isEnableSliding() && mDetector.onTouchEvent(event);
+        return isEnableSliding() && !isInsideIgnore(event) && mDetector.onTouchEvent(event);
     }
 
     @Override
